@@ -1,53 +1,28 @@
-/*
-import logo from './logo.svg';
+import React, { useState } from "react";
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
-
-export default App;
-*/
-
-import React, { useState } from "react";
+//proflight logo is a PNG stored in assets
 import logo1 from "./assets/Logo-proflight.png";
 import logo2 from "./assets/Logo-proflight.png";
 import logo3 from "./assets/Logo-proflight.png";
 import logo4 from "./assets/Logo-proflight.png";
 
-// Importar imágenes de los botones
+// buttons PNG are stored in assets
 import nextButton from "./assets/nextButton.png";
 import prevButton from "./assets/prevButton.png";
 
 const LogoSlider = () => {
   const [currentLogoIndex, setCurrentLogoIndex] = useState(0);
 
-  // Array con las rutas de las imágenes de los logos
+  // Array where logos are stored
   const logos = [logo1, logo2, logo3, logo4];
 
-  // Función para avanzar al siguiente logo
+  // this function moves the highlighted logo one position to the right
   const handleNext = () => {
     setCurrentLogoIndex((prevIndex) =>  prevIndex === logos.length - 1 ? 0 : prevIndex + 1);
   };
 
-  // Función para retroceder al logo anterior
+  // this function moves the highlighted logo one position to the left
   const handlePrevious = () => {
     setCurrentLogoIndex((prevIndex) =>
       prevIndex === 0 ? logos.length - 1 : prevIndex - 1
